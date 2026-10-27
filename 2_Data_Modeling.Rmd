@@ -1,0 +1,161 @@
+
+This workflow is for analyzing the growth rates from high-throughput screens by performing statistical tests. 
+
+The order of this workflow is: 
+  1. Metadata
+  2. Growth Rates Summary
+  3. Repeated-Measures ANOVA & Linear Mixed-Effects Model 
+  4. Lactose Data
+
+Libraries
+```{r}
+library(dplyr)
+library(ggplot2)
+library(tidyverse)      
+library(broom)          
+library(ggpointdensity) 
+library(scales)
+library(dplyr)
+library(afex)
+library(lme4)
+library(lmerTest)
+```
+
+load in the data 
+```{r}
+#sd_filtered= read.csv("output/filtered_data.csv")
+growth_rates <-read.csv("input/Modeled_Data.csv") #phenotypic_gr_filtered
+metadata <- read.csv("input/Strain_Metadata.csv")
+```
+
+Metadata 
+Join the metadata and strain information, then order the carbon source columns 
+```{r}
+growth_rates_2 <- growth_rates %>%
+  left_join(
+    metadata %>% dplyr::select(Strain, Second_Substrate), 
+    by = c("Strain" = "Strain")
+  )  %>%
+  mutate(
+    # Set factor order: Control (Glucose) to increasingly complex carbon sources 
+    Condition = factor(
+      Condition,
+      levels = c(
+        "Glucose",               # Baseline Control / Hexose (C6)
+        "Arabinose", "Xylose",   # Pentoses (C5)
+        "Galactose",             # Hexose (C6)
+        "Cellobiose", "Lactose", # Disaccharides (C12)
+        "Pectin"                 # Polymer
+      )
+    )
+  )
+```
+
+Growth Rates Summary
+```{r}
+#How many strains are isolated from each substrate? 
+growth_rates_2 %>% 
+  filter(!is.na(Second_Substrate)) %>%
+  distinct(Strain, Second_Substrate) %>%
+  count(Second_Substrate, name = "n_strains") %>%
+  arrange(desc(n_strains))
+
+#Average Growth Rate on each Condition 
+growth_rates_2 %>% group_by(Condition) %>% summarize(mean(Maximum.Growth.Rate))
+growth_rates_2 %>% group_by(Condition,Second_Substrate) %>% summarize(mean(Maximum.Growth.Rate))
+
+
+growth_rates_wide <- growth_rates_2 %>%
+  dplyr::select(Strain, Condition, Maximum.Growth.Rate) %>%
+  pivot_wider(
+    names_from = Condition,
+    values_from = Maximum.Growth.Rate
+  )
+
+# Export directly to a CSV ready for Prism import
+write.csv(growth_rates_wide, "output/growth_rates_wide.csv", row.names = FALSE)
+```
+
+Repeated-Measures ANOVA & Linear Mixed-Effects Model 
+```{r}
+# Filter data and set factors
+anova_test <- growth_rates_2 %>%
+  filter(!is.na(Second_Substrate), 
+         !Second_Substrate %in% c("Insect", "Lab")) %>%
+  mutate(Strain = factor(Strain),
+         Condition = factor(Condition),
+         Second_Substrate = droplevels(factor(Second_Substrate)))
+
+#Keep only complete cases (strains present in all 7 conditions)
+complete <- anova_test %>%
+  group_by(Strain) %>%
+  filter(n_distinct(Condition) == 7) %>%
+  ungroup()
+
+#Run the repeated-measures ANOVA
+fit_cc <- aov_ez(
+  id      = "Strain",
+  dv      = "Maximum.Growth.Rate",
+  data    = complete,
+  between = "Second_Substrate",
+  within  = "Condition"
+)
+
+fit_cc
+
+#linear mixed-effects model 
+lmem_growth_rates <- lmer(Maximum.Growth.Rate ~ Condition * Second_Substrate + (1 | Strain),
+          data = anova_test)
+
+anova(lmem_growth_rates)
+```
+
+Lactose Data 
+```{r}
+#filter down to the lactose data 
+lactose_grouped <- anova_test %>%
+  filter(Condition == "Lactose") %>%
+  mutate(Substrate_Group = if_else(Second_Substrate == "Dairy", "Dairy", "Other"))
+
+#t-test 
+t.test(Maximum.Growth.Rate ~ Substrate_Group, data = lactose_grouped, var.equal = FALSE)
+
+#Export Lactose Data 
+# 1. Reshape lactose data into Wide Format (One column per Isolation Substrate)
+lactose_wide <- lactose_grouped %>%
+  group_by(Second_Substrate) %>%
+  mutate(Strain_Index = row_number()) %>%
+  ungroup() %>%
+  pivot_wider(
+    id_cols = Strain_Index,
+    names_from = Second_Substrate,
+    values_from = Maximum.Growth.Rate
+  ) %>%
+  dplyr::select(-Strain_Index)
+
+# 2. Export as CSV to import into Prism
+write_csv(lactose_wide, "output/lactose_wide.csv")
+```
+
+```{r}
+lactose_data= growth_rates_2 %>% filter(Condition == "Lactose" & !Second_Substrate %in% c("Insect","Lab"))
+
+ggplot(lactose_data, aes(x = Second_Substrate, y = Maximum.Growth.Rate, fill = Second_Substrate)) +
+  geom_boxplot(outlier.shape = NA, alpha = 0.8, position = position_dodge(width = 0.8)) +
+  geom_jitter(
+    aes(color = Second_Substrate), 
+    width = 0.2, 
+    alpha = 0.6, 
+    size = 1.5
+  ) +
+  labs(
+    title = "B. Lactose Divergence",
+    x = "Isolation Substrate",
+    y = NULL
+  )
+
+```
+
+
+
+

@@ -1,0 +1,259 @@
+Strain,Status,Reason,Stock_Center,Strain_Names,BSL,Isolation_Location,Country,Region,Isolation_Substrate,Second_Substrate,Isolation_Date,Decade
+CBS11445,Included,,CBS,"CBS11445,",BSL-1,"Mbweni village, Tanzania",Tanzania,South Africa,"Togwa,Tanzanianfermentedfood",Non-dairy Fermented,Apr2009,2000
+CBS1553,Included,,CBS,"CBS1553,DBVPG6034",BSL-2,"Pavia, Italy",Italy,Europe,lung of tuberculosis patient,Clinical,Apr1925,1920
+CBS1554,Included,,CBS,"CBS1554,",BSL-1,"Tokyo, Japan",Japan,Asia,unknown,NA,Jul1927,1920
+CBS1555,Included,,CBS,"CBS1555,",BSL-1,Netherlands,Netherlands,Europe,yoghurt,Dairy,Nov1930,1930
+CBS1558,Included,,CBS,"CBS1558,",BSL-1,Estonia,Estonia,Europe,koumiss,Dairy,Dec1932,1930
+CBS1559,Included,,CBS,"CBS1559,",BSL-2,"Catania, Sicily",Italy,Europe,lesionon tonsills,Clinical,1930,1930
+CBS1561,Included,,CBS,"CBS1561,",BSL-1,NA,NA,NA,faeces,Environment,Jan1948,1940
+CBS1574,Included,,CBS,"CBS1574,",BSL-1,"Delft, Netherlands",Netherlands,Europe,yoghurt,Dairy,Nov1948,1940
+CBS1596,Included,,CBS,"CBS1596,CBS1957",BSL-1,NA,NA,NA,unknown,NA,Jun1926,1920
+CBS1621,Included,,CBS,"CBS1621,",BSL-1,NA,NA,NA,unknown,NA,Dec1934,1930
+CBS2079,Included,,CBS,"CBS2079,IFO0960,VKMY-434",BSL-1,"Schiedam, Netherlands,Netherlands",Netherlands,Europe,pressedyeast,Non-dairy Fermented,1936,1930
+CBS2081,Included,,CBS,"CBS2081,",BSL-1,"Amsterdam, Netherlands,Netherlands",Netherlands,Europe,leaking tin of apples,Non-dairy Fermented,Oct1954,1950
+CBS2173,Included,,CBS,"CBS2173,",BSL-1,UK,United Kingdom,Europe,milkofmastiticcow,Dairy,Jul1954,1950
+CBS2231,Included,,CBS,"CBS2231,DBVPG6024",BSL-2,"Pavia, Italy",Italy,Europe,"lung,of a fatal case of tuberculosis",Clinical,1930,1930
+CBS2232,Included,,CBS,"CBS2232,",BSL-2,Austria,Austria,Europe,"infected nail,of 2-year-old girl",Clinical,Jan1935,1930
+CBS2237,Included,,CBS,"CBS2237,",BSL-1,"Wageningen, Netherlands,Netherlands",Netherlands,Europe,unknown,NA,Oct1945,1940
+CBS3021,Included,,CBS,"CBS3021,",BSL-2,"Graz, Austria",Austria,Europe,"lung, of 11/2-month-old baby with pneumonia",Clinical,Oct1954,1950
+CBS3022,Included,,CBS,"CBS3022,",BSL-1,"Jena, Austria",Austria,Europe,"post-mortemmaterial, from a nurse",Clinical,Oct1954,1950
+CBS3073,Included,,CBS,"CBS3073,",BSL-2,Netherlands,Netherlands,Europe,sputum,Clinical,Jan1955,1950
+CBS3074,Included,,CBS,"CBS3074,",BSL-2,Netherlands,Netherlands,Europe,thorax of Man,Clinical,Jan1955,1950
+CBS3075,Included,,CBS,"CBS3075,",BSL-1,Norway,Norway,Europe,bovine mastitis,Dairy,May1958,1950
+CBS4354,Included,,CBS,"CBS4354,",BSL-1,Yugoslavia,Yugoslavia,Europe,milk of mastitic cow,Dairy,Apr1959,1950
+CBS5069,Included,,CBS,"CBS5069,",BSL-1,Netherlands,Netherlands,Europe,hoofofcow,Environment,1960,1960
+CBS5323,Included,,CBS,"CBS5323,",BSL-1,NA,NA,NA,CBS397,NA,1960,1960
+CBS600,Included,,CBS,"CBS600,DBVPG6210,NCYC906,VKMY-48",BSL-2,NA,NA,NA,sputum,Clinical,May1920,1920
+CBS6014,Included,,CBS,"CBS6014,",BSL-1,"Paris, France",France,Europe,stomach of lion cub,Environment,1980,1980
+CBS608,Included,,CBS,"CBS608,NCYC143,NCTC1302",BSL-1,"Iowa, USA",United States,North America,yeasty cream,Dairy,Dec1932,1930
+CBS6438,Included,,CBS,"CBS6438,",BSL-1,"Firth of Forth, UK",United Kingdom,Europe,sewageslick,Environment,1980,1980
+CBS6497,Included,,CBS,"CBS6497,",BSL-1,NA,NA,NA,unknown,NA,1990,1990
+CBS6498,Included,,CBS,"CBS6498,",BSL-1,NA,NA,NA,unknown,NA,1990,1990
+CBS6634,Included,,CBS,"CBS6634,",BSL-1,NA,NA,NA,unknown,NA,1987,1980
+CBS6635,Included,,CBS,"CBS6635,",BSL-1,NA,NA,NA,unknown,NA,1987,1980
+CBS6777,Included,,CBS,"CBS6777,",BSL-1,NA,NA,NA,,NA,1988,1980
+CBS6873,Included,,CBS,"CBS6873,",BSL-1,South Africa,South Africa,South Africa,soil,Environment,1987,1980
+CBS6876,Included,,CBS,"CBS6876,DBVPG6943",BSL-1,NA,NA,NA,unknown,NA,1988,1980
+CBS7858,Included,,CBS,"CBS7858,NCYC426",BSL-1,UK,United Kingdom,Europe,probablyfoodstuff,Non-dairy Food,Feb1995,1990
+CBS7894,Included,,CBS,"CBS7894,NCYC111",BSL-1,UK,United Kingdom,Europe,unknown,NA,Feb1995,1990
+CCY021-003-001,Included,,CCY,CCY021-003-001,BSL-1,Czech Republic ,Czechia,Europe,,NA,,NA
+CCY050-002-004,Included,,CCY,CCY050-002-004,BSL-1,"Slovakia,Slovakia",Slovakia,Europe,sugar beet shreds,Non-dairy Food,,NA
+CCY051-001-005,Included,,CCY,CCY051-001-005,BSL-1,NA,NA,NA,,NA,,NA
+DBVPG10204,Included,,DBVPG,DBVPG10204,BSL-1,"Piacenza, Italy",Italy,Europe,"kefir grains, Bionova snc",Dairy,,NA
+DBVPG3084,Included,,DBVPG,DBVPG3084,BSL-1,NA,NA,NA,,NA,,NA
+DBVPG3211,Included,,DBVPG,DBVPG3211,BSL-1,"Pavia, Italy",Italy,Europe,,NA,,NA
+DBVPG3391,Included,,DBVPG,DBVPG3391,BSL-1,"Perugia, Italy",Italy,Europe,pharnyx mucous,Clinical,,NA
+DBVPG3392,Included,,DBVPG,DBVPG3392,BSL-1,"Perugia, Italy",Italy,Europe,pharnyx mucous,Clinical,,NA
+DBVPG3436,Included,,DBVPG,DBVPG3436,BSL-1,"Perugia, Italy",Italy,Europe,milk,Dairy,,NA
+DBVPG3748,Included,,DBVPG,DBVPG3748,BSL-1,"Perugia, Italy",Italy,Europe,mozzarella cheese,Dairy,,NA
+DBVPG3912,Included,,DBVPG,DBVPG3912,BSL-1,"Perugia, Italy",Italy,Europe,phlegm of a tuberculosis patient,Clinical,,NA
+DBVPG3925,Included,,DBVPG,DBVPG3925,BSL-1,"Perugia, Italy ",Italy,Europe,natural rennet,Dairy,,NA
+DBVPG3926,Included,,DBVPG,DBVPG3926,BSL-1,"Perugia, Italy",Italy,Europe,natural rennet,Dairy,,NA
+DBVPG3927,Included,,DBVPG,DBVPG3927,BSL-1,"Perugia, Italy",Italy,Europe,natural rennet,Dairy,,NA
+DBVPG3928,Included,,DBVPG,DBVPG3928,BSL-1,"Perugia, Italy",Italy,Europe,natural rennet,Dairy,,NA
+DBVPG3929,Included,,DBVPG,DBVPG3929,BSL-1,"Perugia, Italy",Italy,Europe,natural rennet,Dairy,,NA
+DBVPG3939,Included,,DBVPG,DBVPG3939,BSL-1,"Perugia, Italy",Italy,Europe,natural rennet,Dairy,,NA
+DBVPG3940,Included,,DBVPG,DBVPG3940,BSL-1,"Perugia, Italy",Italy,Europe,natural rennet,Dairy,,NA
+DBVPG3941,Included,,DBVPG,DBVPG3941,BSL-1,"Perugia, Italy",Italy,Europe,natural rennet,Dairy,,NA
+DBVPG4238,Included,,DBVPG,DBVPG4238,BSL-1,"Turin, Italy",Italy,Europe,Zymoyeast additive fodder,NA,,NA
+DBVPG4241,Included,,DBVPG,DBVPG4241,BSL-1,"Turin, Italy",Italy,Europe,Zymoyeast additive fodder,NA,,NA
+DBVPG4245,Included,,DBVPG,DBVPG4245,BSL-1,"Turin, Italy",Italy,Europe,Zymoyeast additive fodder,NA,,NA
+DBVPG4246,Included,,DBVPG,DBVPG4246,BSL-1,"Turin, Italy",Italy,Europe,Zymoyeast additive fodder,NA,,NA
+DBVPG6311,Included,,DBVPG,DBVPG6311,BSL-1,"Sassari, Italy",Italy,Europe,fermented goat milk,Dairy,,NA
+DBVPG6312,Included,,DBVPG,DBVPG6312,BSL-1,"Sassari, Italy",Italy,Europe,fermented goat milk,Dairy,,NA
+DBVPG6313,Included,,DBVPG,DBVPG6313,BSL-1,"Sassari, Italy",Italy,Europe,goat milk,Dairy,,NA
+DBVPG6314,Included,,DBVPG,DBVPG6314,BSL-1,"Sassari, Italy",Italy,Europe,goat milk,Dairy,,NA
+DBVPG6544,Included,,DBVPG,DBVPG6544,BSL-1,Argentina,NA,North America,,NA,,NA
+DBVPG6550,Included,,DBVPG,DBVPG6550,BSL-1,Argentina,NA,North America,,NA,,NA
+DBVPG6678,Included,,DBVPG,DBVPG6678,BSL-1,"Potenza, Italy",Italy,Europe,,NA,,NA
+DBVPG6760,Included,,DBVPG,DBVPG6760,BSL-1,"Turin, Italy",Italy,Europe,,NA,,NA
+DBVPG7126,Included,,DBVPG,DBVPG7126,BSL-1,NA,NA,NA,,NA,,NA
+DSM106153,Included,,DSM,"DSM106153,",BSL-1,"Berlin, Germany",Germany,Europe,A commercial mango chilli spread,Non-dairy Food,11.09.2017,2010
+DSM11954,Included,,DSM,"DSM11954,",BSL-1,NA,NA,NA,,NA,before 27.01.1998,1990
+DSM4906,Included,,DSM,"DSM4906,IFO0288,NBRC288",BSL-1,"Tokyo, Japan",Japan,Asia,,NA,before 27.10.1988,1980
+DSM4908,Included,,DSM,"DSM4908,IFO0277,NBRC277",BSL-1,"Berlin, Germany",Germany,Europe,,NA,before 27.10.1988,1980
+DSM70106,Included,,DSM,"DSM70106,",BSL-1,NA,NA,NA,,NA,before 22.08.1990,1990
+DSM70292,Included,,DSM,"DSM70292,",BSL-1,NA,NA,NA,milk,Dairy,before 22.08.1990,1990
+DSM70343,Included,,DSM,"DSM70343,",BSL-1,"Maxau, Germany",Germany,Europe,Sulfite liquor,Non-dairy Fermented,before 22.08.1990,1990
+DSM70344,Included,,DSM,"DSM70344,",BSL-1,"Berlin, Germany",Germany,Europe,dessert-yoghourt,Dairy,before 22.08.1990,1990
+DSM70792,Included,,DSM,"DSM70792,",BSL-1,Italy,Italy,Europe,marchpane,Non-dairy Food,before 22.08.1990,1990
+DSM70804,Included,,DSM,"DSM70804,",BSL-1,NA,NA,NA,fruit jelly,Non-dairy Food,before 22.08.1990,1990
+DSM7238,Included,,DSM,"DSM7238,",BSL-1,"Sofia, Bulgaria",Bulgaria,Europe,yoghourt,Dairy,before 17.09.1992,1990
+DSM7239,Included,,DSM,"DSM7239,",BSL-1,"Sofia, Bulgaria",Bulgaria,Europe,yoghourt,Dairy,before 17.09.1992,1990
+NBRC105680,Included,,NBRC ,"NBRC105680,",BSL-1,"Iizaka City, Fukushima Prefecture, Japan,Japan",Japan,Asia,"Kefir grain, which was collected by Takuya Hashimoto in April 2001 from a family in Iizaka City, Hukushima Prefecture, Japan, and since then transferred into cow's milk until 2008 once per week in our laboratory",Dairy,June1905,1900
+NBRC1065,Included,,NBRC ,"NBRC1065,ATCC9767,CCY29-8-8,JCM2342,FMJ1026",BSL-1,"New Haven, CT, USA",United States,North America,,NA,1960/11/02,1960
+NBRC1777,Included,,NBRC ,"NBRC1777,OUT20004,On-28m2",BSL-1,"Iizaka City, Fukushima Prefecture, Japan,Japan",Japan,Asia,Soil,Environment,1977/08/09,1970
+NBRC1963,Included,,NBRC ,"NBRC1963,NCYC100",BSL-1,NA,NA,NA,,NA,1980/05/16,1980
+NBRC219,Included,,NBRC ,"NBRC219,",BSL-1,NA,NA,NA,,NA,1941/01/01,1940
+NBRC272,Included,,NBRC ,"NBRC272,",BSL-1,NA,NA,NA,Miso,Non-dairy Food,1942/01/01,1940
+NBRC273,Included,,NBRC ,"NBRC273,",BSL-1,NA,NA,NA,,NA,1942/01/01,1940
+NBRC482,Included,,NBRC ,"NBRC482,HUT7182",BSL-1,NA,NA,NA,mash of chinese wine kaoliangchiu,Non-dairy Fermented,1946/01/01,1940
+NBRC483,Included,,NBRC ,"NBRC483,",BSL-1,Korea,South Korea,Asia,Korean yeast cake,Non-dairy Food,1946/01/01,1940
+NBRC541,Included,,NBRC ,"NBRC541,IAM12237,JCM1630",BSL-1,NA,NA,NA,,NA,1941/01/01,1940
+NBRC586,Included,,NBRC ,"NBRC586,FMJJ1004,NI7494",BSL-1,"Durham, North Carolina, USA",United States,North America,,NA,1952/01/01,1950
+NBRC690,Included,,NBRC ,"NBRC690,IAM4985,IMI38918,JCM2188,NCYC243,NI7554",BSL-1,NA,NA,NA,,NA,1955/01/01,1950
+NBRC706,Included,,NBRC ,"NBRC706,ATCC6261,ATCC7347,ATCC748,IAM12823,JCM2181,JCM2294",BSL-1,"New Orleans, LA, USA",United States,North America,,NA,1955/01/01,1950
+NBRC882,Included,,NBRC ,"NBRC882,JCM2297,AJ5782,H-1",BSL-1,NA,NA,NA,fermented milk,Dairy,1957/04/10,1950
+NBRC883,Included,,NBRC ,"NBRC883,H-2",BSL-1,NA,NA,NA,fermented milk,Dairy,1957/04/10,1950
+NCYC1441,Included,,NCYC,NCYC1441,BSL-1,"Finland, UK",United Kingdom,Europe,solatedfromFinnishkefyr.,Dairy,December 1982,1980
+NCYC151,Included,,NCYC,"NCYC151,",BSL-1,"London, England",United Kingdom,Europe,,NA,December 1933,1930
+NCYC152,Included,,NCYC,"NCYC152,NCTC2637",BSL-1,"Ontario, Canada",Canada,North America,,NA,April 1928,1920
+NCYC179,Included,,NCYC,"NCYC179,ATCC36142",BSL-1,"Northfield, Illinois, USA",United States,North America,Cheese,Dairy,March 1939,1930
+NCYC2265,Included,,NCYC,"NCYC2265,GK1005",BSL-1,NA,NA,NA,,NA,,NA
+NCYC244,Included,,NCYC,"NCYC244,IMI46336",BSL-1,NA,NA,NA,,NA,August 1951,1950
+NCYC2675,Included,,NCYC,"NCYC2675,NCL94(GR-5)",BSL-1,"Pune, India,India",India,Asia,Rotting grapes ,Non-dairy Food,June 1996,1990
+NCYC2886,Included,,NCYC,"NCYC2886,",BSL-1,United Arab Emirates,United Arab Emirates,Middle East,Soil ,Environment,August 1999,1990
+NCYC2887,Included,,NCYC,"NCYC2887,",BSL-1,United Arab Emirates,United Arab Emirates,Middle East,Soil ,Environment,August 1999,1990
+NCYC2907,Included,,NCYC,"NCYC2907,",BSL-1,United Arab Emirates,United Arab Emirates,Middle East,Soil ,Environment,November 1999,1990
+NCYC3396,Included,,NCYC,"NCYC3396,",BSL-1,"England, UK",United Kingdom,Europe,Home-made elderflower champagne,Non-dairy Fermented,August 2006,2000
+NCYC587,Included,,NCYC,"NCYC587,ATCC36907",BSL-1,"California, USA",United States,North America,Souring figs,Non-dairy Food,January 1959,1950
+NCYC6,Included,,NCYC,"NCYC6,ATCC4135,CBS607,DBVPG6161,JCM3760",BSL-2,"Sri Lanka,Sri Lanka",Sri Lanka,Asia,Sputum in case of bronchomoniliasis,Clinical,,NA
+NCYC733,Included,,NCYC,"NCYC733,CBS2625",BSL-1,NA,NA,NA,From contaminated liquid culture media of Mycobacter aceti,Non-dairy Fermented,April 1974,1970
+NCYC744,Included,,NCYC,"NCYC744,UD829",BSL-1,NA,NA,NA,Isolated from 'real fruit' yoghurt.,Dairy,February 1970,1970
+NCYC827,Included,,NCYC,"NCYC827,",BSL-1,"Belfast, Northern Ireland",United Kingdom,Europe,Milk sample from cow with mastitis,Dairy,February 1976,1970
+NRRLY-1008,Included,,NRRL,"NRRLY-1008,",BSL-1,"Berkeley, California, USA",United States,North America,FRT?,NA,,NA
+NRRLY-1052,Included,,NRRL,"NRRLY-1052,Mrak109,Nickerson78",BSL-1,"Nickerson, Massachusetts, USA",United States,North America,,NA,,NA
+NRRLY-108,Included,,NRRL,"NRRLY-108,ATCC2177",BSL-1,NA,NA,NA,Tanner collection,Lab,,NA
+NRRLY-10935,Included,,NRRL,"NRRLY-10935,API76-M-44",BSL-2,"Plainview, New York",United States,North America,"CLN, human source",Clinical,,NA
+NRRLY-10987,Included,,NRRL,"NRRLY-10987,API77-M-62",BSL-2,"Plainview, New York",United States,North America,"CLN, sputum",Clinical,,NA
+NRRLY-1100,Included,,NRRL,"NRRLY-1100,ATCC2702,LAFFER4",BSL-1,NA,NA,NA,,NA,,NA
+NRRLY-1108,Included,,NRRL,"NRRLY-1108,ATCC8553,LAFFER14",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1109,Included,,NRRL,"NRRLY-1109,ATCC34439,ATCC8554,CBS5795,DSM5418,Laffer15,UCD-FST55-61",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1110,Included,,NRRL,"NRRLY-1110,ATCC8555,Laffer16",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1122,Included,,NRRL,"NRRLY-1122,Laffer30",BSL-2,NA,NA,NA,"CLN, tonsilitis (Dr. Miller)",Clinical,,NA
+NRRLY-1127,Included,,NRRL,"NRRLY-1127,ATCC8572,LAFFER37",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1131,Included,,NRRL,LAFFER 43,BSL-1,"Urbana, Illinois, USA",United States,North America,,NA,2/1/42,1940
+NRRLY-1137,Included,,NRRL,"NRRLY-1137,ATCC8582,ATCC90460,DSM5419,Laffer49",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1149,Included,,NRRL,"NRRLY-1149,Laffer71",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1150,Included,,NRRL,"NRRLY-1150,Laffer72",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1151,Included,,NRRL,"NRRLY-1151,ATCC8596,LAFFER73",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1152,Included,,NRRL,"NRRLY-1152,Laffer74",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1156,Included,,NRRL,"NRRLY-1156,ATCC8601,Laffer78",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1157,Included,,NRRL,"NRRLY-1157,Laffer79",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1159,Included,,NRRL,"NRRLY-1159,Laffer81",BSL-1,"University of Illinois, Urbana, Illinois,USA",United States,North America,"DFD?, University of Illinois, Urbana, Illinois, USA",Dairy,,NA
+NRRLY-1160,Included,,NRRL,"NRRLY-1160,Laffer82",BSL-2,Germany,Germany,Europe,"DFD?, Dr. Mauer, Germany",Dairy,,NA
+NRRLY-1161,Included,,NRRL,"NRRLY-1161,ATCC8606,Laffer83,UofWI1-16C",BSL-1,NA,NA,NA,,NA,,NA
+NRRLY-1163,Included,,NRRL,"NRRLY-1163,ATCC8608,DSM5420,KY5463,Laffer85",BSL-1,"University of Illinois, Urbana, Illinois,USA",United States,North America,"DFD, dairy cream, University of Illinois, Urbana, Illinois, USA",Dairy,,NA
+NRRLY-1165,Included,,NRRL,"NRRLY-1165,ATCC8610,LAFFER87",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1167,Included,,NRRL,"NRRLY-1167,Laffer89",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1171,Included,,NRRL,"NRRLY-1171,ATCC8616,Laffer93",BSL-1,"University of Illinois, Urbana, Illinois,USA",United States,North America,"DFD, dairy cream, University of Illinois, Urbana, Illinois, USA",Dairy,,NA
+NRRLY-1172,Included,,NRRL,"NRRLY-1172,ATCC8617,BREED2,LAFFER96",BSL-1,"Geneva, New York,USA",United States,North America,"DFD, whey, Geneva, New York, USA",Dairy,,NA
+NRRLY-1173,Included,,NRRL,"NRRLY-1173,ATCC8618,BREED3,LAFFER97",BSL-1,"Geneva, New York,USA",United States,North America,"DFD, whey, Geneva, New York, USA",Dairy,,NA
+NRRLY-1174,Included,,NRRL,"NRRLY-1174,ATCC64884,ATCC8619,BREED4,LAFFER98",BSL-1,"Geneva, New York,USA",United States,North America,"DFD, whey, Geneva, New York, USA",Dairy,,NA
+NRRLY-1175,Included,,NRRL,ATCC 64885=BREED 5=LAFFER 99,BSL-1,"Geneva, New York,USA",United States,North America,"dfd,whey",Dairy,2/1/42,1940
+NRRLY-1176,Included,,NRRL,"NRRLY-1176,Laffer106,Orla-Jensen12",BSL-1,Denmark,Denmark,Europe,"DFD, milk, Denmark",Dairy,,NA
+NRRLY-1177,Included,,NRRL,"NRRLY-1177,AJ4657,ATCC8622,IAM4829,IFO0617,Laffer107,Orla-Jensen10",BSL-1,Denmark,Denmark,Europe,"DFD, yogurt, Denmark",Dairy,,NA
+NRRLY-1179,Included,,NRRL,"NRRLY-1179,ATCC8624,Laffer109",BSL-1,"University of Missouri,USA",United States,North America,"University of Missouri, USA",NA,,NA
+NRRLY-1182,Included,,NRRL,LAFFER 119,BSL-1,"Champaign, Illinois,USA",United States,North America,"dfd,cream,",Dairy,2/1/42,1940
+NRRLY-1183,Included,,NRRL,"NRRLY-1183,ATCC8628,Laffer120",BSL-1,"Champaign, Illinois,USA",United States,North America,"DFD, cream, Champaign, Illinois, USA",Dairy,,NA
+NRRLY-1186,Included,,NRRL,"NRRLY-1186,FDAL-4,LAFFER124",BSL-1,USA,United States,North America,USDA,NA,,NA
+NRRLY-11871,Included,,NRRL,"NRRLY-11871,",BSL-1,"Columbus, Ohio, USA",United States,North America,"FD, egg holding tank",Non-dairy Food,,NA
+NRRLY-1189,Included,,NRRL,HENNEBERG 229=LAFFER 131,BSL-1,"Urbana, Illinois, USA",United States,North America,,NA,2/1/42,1940
+NRRLY-1190,Included,,NRRL,"NRRLY-1190,ATCC28910,ATCC8635,BICZAS326/5,BKMY-2012,CCY51-1-1,DEM1128,DSM5421,Henneberg236,IBFMY-613,Laffer132",BSL-1,Germany,Germany,Europe,"DFD, yogurt, Germany",Dairy,,NA
+NRRLY-1194,Included,,NRRL,"NRRLY-1194,HennebergH-7,Laffer136",BSL-1,Germany,Germany,Europe,Germany,NA,,NA
+NRRLY-1195,Included,,NRRL,"NRRLY-1195,Henneberg1,Laffer137",BSL-1,Germany,Germany,Europe,Germany,NA,,NA
+NRRLY-1196,Included,,NRRL,"NRRLY-1196,ATCC34440,ATCC8641,ATCC90459,FleischmannLab92,1.9,Laffer138",BSL-1,"New York City, New York,USA",United States,North America,"New York City, New York, USA",NA,,NA
+NRRLY-1197,Included,,NRRL,"NRRLY-1197,Laffer139",BSL-1,USA,United States,North America,"DFD, skim milk, Dorner",Dairy,,NA
+NRRLY-1198,Included,,NRRL,"NRRLY-1198,Laffer140",BSL-1,USA,United States,North America,"DFD, whey, Dorner",Dairy,,NA
+NRRLY-1200,Included,,NRRL,"NRRLY-1200,AJ5784,ATCC8645,IFO0942,JCM2316,LAFFER144,LISTERINSTITUT,LISTERINSTITUTE607,TsuchiyaJ-1236",BSL-1,"England,UK",United Kingdom,Europe,"England, United Kingdom",NA,,NA
+NRRLY-1203,Included,,NRRL,ATCC 8648=IFO 0616=LAFFER 149,BSL-1,"Urbana, Illinois, USA",United States,North America,,NA,2/1/42,1940
+NRRLY-1204,Included,,NRRL,LAFFER 150,BSL-1,"Urbana, Illinois, USA",United States,North America,,NA,2/1/42,1940
+NRRLY-1207,Included,,NRRL,"NRRLY-1207,Laffer163",BSL-1,Armenia,Armenia,Middle East,"Matzoune, Armenia",Dairy,,NA
+NRRLY-1208,Included,,NRRL,"NRRLY-1208,ATCC8654,Laffer164",BSL-1,Armenia,Armenia,Middle East,"Matzoune, Armenia",Dairy,,NA
+NRRLY-1209,Included,,NRRL,"NRRLY-1209,ATCC8655,Laffer165",BSL-1,Armenia,Armenia,Middle East,"Matzoune, Armenia",Dairy,,NA
+NRRLY-1211,Included,,NRRL,"NRRLY-1211,Laffer167",BSL-1,Armenia,Armenia,Middle East,"Matzoune, Armenia",Dairy,,NA
+NRRLY-1213,Included,,NRRL,"NRRLY-1213,ATCC8659,LAFFER169",BSL-1,"Tucson, Arizona,USA",United States,North America,"DFD, skim milk, Tucson, Arizona, USA",Dairy,,NA
+NRRLY-1214,Included,,NRRL,"NRRLY-1214,ATCC8660,LAFFER170",BSL-1,"Tucson, Arizona,USA",United States,North America,"DFD, skim milk, Tucson, Arizona, USA",Dairy,,NA
+NRRLY-12802,Included,,NRRL,"NRRLY-12802,VANDERHOOF4Y",BSL-2,"McLean, Virginia, USA",United States,North America,"CLN, clinical isolate",Clinical,,NA
+NRRLY-12990,Included,,NRRL,"NRRLY-12990,LachanceUWO-PSSM3-4",BSL-1,"Lachance, Ontario, Canada",Canada,North America,"DFD, cheese",Dairy,,NA
+NRRLY-12991,Included,,NRRL,"NRRLY-12991,LachanceUWO-PSSM10-5",BSL-1,"Lachance, Ontario, Canada",Canada,North America,"DFD, cheese",Dairy,,NA
+NRRLY-12992,Included,,NRRL,"NRRLY-12992,LachanceUWO-PSSM16-10",BSL-1,"Lachance, Ontario, Canada",Canada,North America,"DFD, cheese",Dairy,,NA
+NRRLY-12993,Included,,NRRL,"NRRLY-12993,LachanceUWO-PSSM17-1",BSL-1,"Lachance, Ontario, Canada",Canada,North America,"DFD, cheese",Dairy,,NA
+NRRLY-12994,Included,,NRRL,"NRRLY-12994,LachanceUWO-PSSM38-10",BSL-1,"Lachance, Ontario, Canada",Canada,North America,"DFD, cheese",Dairy,,NA
+NRRLY-12995,Included,,NRRL,"NRRLY-12995,LachanceUWO-PSS79-267-5",BSL-1,"Lachance, Ontario, Canada",Canada,North America,"CAC, Stenocereus gummosus",Environment,,NA
+NRRLY-1342,Included,,NRRL,"NRRLY-1342,Mrak352(2)",BSL-1,"Berkeley, California, USA",United States,North America,FRT?,NA,,NA
+NRRLY-1550,Included,,NRRL,"NRRLY-1550,ATCC10606,CBS396,IFO0260",BSL-1,The Netherlands,Netherlands,Europe,"AIR, The Netherlands",Environment,,NA
+NRRLY-1598,Included,,NRRL,"NRRLY-1598,ATCC12708,CBS2746,CBS745",BSL-1,"Baarn, The Netherlands",Netherlands,Europe,"LV, rotting Sisal leaf",Environment,,NA
+NRRLY-176,Included,,NRRL,"NRRLY-176,ATCC2512,BICZAS652/6,CCY29-8-9,IBFMY-79,INMIAPM,NRRLY-1099",BSL-1,NA,NA,NA,"DFD, cream fermentation",Dairy,,NA
+NRRLY-196,Included,,NRRL,"NRRLY-196,ATCC2540",BSL-1,NA,NA,NA,Tanner collection,NA,,NA
+NRRLY-208,Included,,NRRL,"NRRLY-208,ATCC2557",BSL-1,NA,NA,NA,,NA,,NA
+NRRLY-2185,Included,,NRRL,"NRRLY-2185,ATCC48774,UCD-FST50-16",BSL-1,"Berkeley, California, USA",United States,North America,"IN, Drosophila pseudo-obscura",Insect,,NA
+NRRLY-2186,Included,,NRRL,"NRRLY-2186,UCD-FST50-17",BSL-1,"Berkeley, California, USA",United States,North America,"IN, Drosophila pseudo-obscura",Insect,,NA
+NRRLY-2261,Included,,NRRL,"NRRLY-2261,ATCC48775,UCD-FST50-29",BSL-1,"San Jacinto, California,USA",United States,North America,"San Jacinto, California, USA",NA,,NA
+NRRLY-2265,Included,,NRRL,"NRRLY-2265,CBS1089",BSL-1,"Lindegren, Sweden",Sweden,Europe,"SEW, sewage from sugar factory",Environment,,NA
+NRRLY-2266,Included,,NRRL,"NRRLY-2266,CBS458",BSL-1,"Lindegren, Sweden",Sweden,Europe,,NA,,NA
+NRRLY-2415,Included,,NRRL,"NRRLY-2415,ATCC46537,ATCC56497,ATCC56752,CBS397,CCRC21477,DBVPG6164,DSM5422,IFO1735,NCYC851,TAGUCHIKCM-023,TAGUCHIKCM-0230,UCD-FST71-58",BSL-1,The Netherlands,Netherlands,Europe,"DFD, yogurt, The Netherlands",Dairy,,NA
+NRRLY-2498,Included,,NRRL,"NRRLY-2498,MAXWELLM-58A",BSL-1,"Bethesda, Maryland, USA",United States,North America,"NRRLY-665, steroid-tol. derivative",Lab,,NA
+NRRLY-2499,Included,,NRRL,"NRRLY-2499,MAXWELLMC-3",BSL-1,"Bethesda, Maryland",United States,North America,"NRRLY-665, steroid-tol. derivative",Lab,,NA
+NRRLY-27798,Included,,NRRL,"NRRLY-27798,HOP19",BSL-2,"Baltimore, Maryland, USA",United States,North America,"CLN, USA",Clinical,,NA
+NRRLY-310,Included,,NRRL,"NRRLY-310,",BSL-1,"Baarn, The Netherlands",Netherlands,Europe,,NA,,NA
+NRRLY-318,Included,,NRRL,"NRRLY-318,ATCC90902,CBS609",BSL-1,"Delft, The Netherlands",Netherlands,Europe,,NA,,NA
+NRRLY-36,Included,,NRRL,"NRRLY-36,ATCC13193,ATCC2342(wrongaccession),NCTC743",BSL-1,NA,NA,NA,Tanner collection,NA,,NA
+NRRLY-37,Included,,NRRL,"NRRLY-37,ATCC2343(wrongaccession)",BSL-1,NA,NA,NA,Tanner collection,NA,,NA
+NRRLY-3913,Included,,NRRL,"NRRLY-3913,CBS3002,DietrichsonV-435",BSL-2,NA,NA,NA,"CLN, expectorate",Clinical,,NA
+NRRLY-3914,Included,,NRRL,"NRRLY-3914,DietrichsonV-239",BSL-1,NA,NA,NA,,NA,,NA
+NRRLY-4074,Included,,NRRL,"NRRLY-4074,IGC417/318A,YB-4098",BSL-1,NA,NA,NA,"AN, caecum of cow",Environment,,NA
+NRRLY-4327,Included,,NRRL,"NRRLY-4327,ATCC16045,ATCC56494,BKMY-1242,BKMY-1494,CBS2762,NCYC970,SantaMariaY2,UCD-FST71-13",BSL-1,NA,NA,NA,"DFD, yogurt",Dairy,,NA
+NRRLY-4442,Included,,NRRL,"NRRLY-4442,MSUQ-1D",BSL-2,NA,NA,NA,"AN, cattle with mycotic mastitis",Environment,,NA
+NRRLY-48196,Included,,NRRL,"NRRLY-48196,YS9F",BSL-1,"Andhra Pradesh,India",India,Asia,"TR, bark, Andhra Pradesh, India",Environment,,NA
+NRRLY-48644,Included,,NRRL,"NRRLY-48644,USRCDY-3214",BSL-1,"Odessa, Ukraine",Ukraine,Europe,"BR, beer producing company",Non-dairy Fermented,,NA
+NRRLY-610,Included,,NRRL,"NRRLY-610,ATCC12424,STOVALL21041",BSL-1,"Stovall, Wisconsin, USA",United States,North America,,NA,,NA
+NRRLY-6137,Included,,NRRL,"NRRLY-6137,",BSL-1,"Bethesda, Maryland",United States,North America,"DG, pigeon manure",Environment,,NA
+NRRLY-63517,Included,,NRRL,"NRRLY-63517,YB-4098SM.COL-A",BSL-1,"Lisbon, Portugal",Portugal,Europe,"AN, caecum of cow",Environment,,NA
+NRRLY-6373,Included,,NRRL,"NRRLY-6373,",BSL-1,"Winter Haven, Florida",United States,North America,"CIT, citrus peel press juice",Non-dairy Food,,NA
+NRRLY-665,Included,,NRRL,"NRRLY-665,ATCC10022,ATCC28126,CBS6432,CCRC21628,Kolachov42,NCTC2303,NCYC101,NRRLY-908,OUT7946,SEAGRAM42,TSES.Y-127",BSL-1,"Louisville, Kentucky, USA",United States,North America,DI?,NA,,NA
+NRRLY-6860,Included,,NRRL,"NRRLY-6860,",BSL-1,"Cambridge, Massachusetts",United States,North America,"FRT, Ecuador banana alcoholic beverage",Non-dairy Fermented,,NA
+NRRLY-7497,Included,,NRRL,"NRRLY-7497,",BSL-1,NA,NA,NA,"CN, cracked corn and manure",Environment,,NA
+NRRLY-7571,Included,,NRRL,"NRRLY-7571,ATCC26548,CBS6556",BSL-1,"Chiapas,Mexico",Mexico,North America,"FFD, Pozol, Chiapas, Mexico",Non-dairy Fermented,,NA
+NRRLY-810,Included,,NRRL,"NRRLY-810,Irvin17",BSL-1,"Belleville, New Jersey",United States,North America,"MUS, baker's type",Non-dairy Food,,NA
+NRRLY-8277,Included,,NRRL,"NRRLY-8277,ATCC22295,ATCC56495,BKMY-1517,CBS4857,CCY43-3-1,UCD-FST71-14",BSL-1,"Delft, Netherlands",Netherlands,Europe,"AN, cow's back",Environment,,NA
+NRRLY-8281,Included,,NRRL,"NRRLY-8281,CBS712,CCRC21499,DBVPG6165,IFO10005,IGC3886,UCD-FST55-82",BSL-1,"Delft, The Netherlands",Netherlands,Europe,,NA,,NA
+NRRLY-8287,Included,,NRRL,"NRRLY-8287,ATCC22296,ATCC56501,BKMY-1545,CBS5671,CCY43-5-1,UCD-FST71-15,vanderWaltK.,vanderWaltK.210.",BSL-1,"Delft, The Netherlands",Netherlands,Europe,"BR, Bantu beer, sorghum",Non-dairy Fermented,,NA
+NRRLY-83,Included,,NRRL,"NRRLY-83,ATCC2123",BSL-1,NA,NA,NA,,NA,,NA
+NRRLY-8304,Included,,NRRL,"NRRLY-8304,MrakM-367,UM-29",BSL-1,"Miami, Florida, USA",United States,North America,,NA,,NA
+NRRLY-867,Included,,NRRL,Wallerstein 130,BSL-1,"Urbana, Illinois, USA",United States,North America,,NA,1/23/41,1940
+NRRLY-87,Included,,NRRL,"NRRLY-87,ATCC2127",BSL-1,NA,NA,NA,,NA,,NA
+NRRLY-872,Included,,NRRL,"NRRLY-872,",BSL-1,"Pribram, Czech Republic",Czechia,Europe,,NA,,NA
+NRRLY-876,Included,,NRRL,"NRRLY-876,",BSL-1,"Pribram, Czech Republic",Czechia,Europe,"DFD, yogurt",Dairy,,NA
+NRRLY-908,Included,,NRRL,BALDWIN 13=NRRL Y-665,BSL-1,"Madison, Wisconsin, USA",United States,North America,,NA,4/25/41,1940
+NRRLY-91,Included,,NRRL,"NRRLY-91,ATCC2131",BSL-1,NA,NA,NA,,NA,,NA
+PYCC2587,Included,,PYCC,PYCC2587,BSL-1,"Portugal,Portugal ",Portugal,Europe,bovine caecum,Dairy,,NA
+PYCC2671,Included,,PYCC,PYCC2671,BSL-1,"Portugal,Portugal ",Portugal,Europe,bovine caecum,Dairy,,NA
+PYCC2902,Included,,PYCC,"PYCC2902, UCD58-82",BSL-1,NA,NA,NA,,NA,,NA
+PYCC3014,Included,,PYCC,PYCC3014,BSL-1,"San Diego, California, USA",United States,North America,Sea Water 100 m depth,Environment,,NA
+PYCC4355,Included,,PYCC,PYCC4355,BSL-1,"Mayworth College, Ireland",Ireland,Europe,,NA,,NA
+PYCC8806,Included,,PYCC,PYCC8806,BSL-1,"Urmia, Iran ",Iran,Middle East,grape berry ,Non-dairy Food,,NA
+PYCC8807,Included,,PYCC,PYCC8807,BSL-1,"Urmia, Iran ",Iran,Middle East,grape berry ,Non-dairy Food,,NA
+UCDFST05-822,Included,,UCDFST ,"UCDFST05-822,",BSL-1,"Winter, California, USA",United States,North America,"Insect, Male walnut Husk Fly ",Insect,,NA
+UCDFST16-5816,Included,,UCDFST ,"UCDFST16-5816,",BSL-1,"Tucson, Arizona, USA",United States,North America,"Cactus, Opuntia phaeacantha cactus rot pH 5.5",Environment,1998-05-21,1990
+UCDFST40-109,Included,,UCDFST ,"UCDFST40-109,",BSL-1,NA,NA,NA,,NA,<1946,1940
+UCDFST40-351,Included,,UCDFST,"UCDFST40-351,CBS6397",BSL-1,"Fresno, California, USA",United States,North America,"EnvironmentFruit, Fresh spoiled Calimyrna figs.",Non-dairy Food,Apr 1905,1900
+UCDFST40-99,Included,,UCDFST ,"UCDFST40-99,ATCC4922",BSL-1,NA,NA,NA,,NA,<1939,1930
+UCDFST49-27,Included,,UCDFST ,"UCDFST49-27,",BSL-1,"San Francisco, California, USA",United States,North America,Isolated by UCDFST from hot acidified wort (1949),Non-dairy Fermented,1905/05/02,1900
+UCDFST55-2,Included,,NRRL,"UCDFST55-2,ATCC2128,NRRLY-88",BSL-1,NA,NA,NA,,NA,<1955,1950
+UCDFST56-14,Included,,UCDFST ,"UCDFST56-14,(NRRLY-1205xY-1598)-11",BSL-1,NA,NA,NA,Laboratory strain,Lab,<1956-06,1950
+UCDFST56-16,Included,,UCDFST ,"UCDFST56-16,(NRRLY-1205xY-1598)-24",BSL-1,NA,NA,NA,Laboratory strain,Lab,<1956-06,1950
+UCDFST61-189,Included,,UCDFST ,"UCDFST61-189,",BSL-1,"Sacto valley, Sacramento, California, USA",United States,North America,"Insect, isolated by Knapp from Drosophila. melanogaster",Insect,<1961,1960
+UCDFST61-293,Included,,UCDFST ,"UCDFST61-293,",BSL-1,"Winters, California, USA",United States,North America,"Insect, Isolated from Drosophila melanogaster",Insect,1961-09,1960
+UCDFST69-1033,Included,,UCDFST ,"UCDFST69-1033,",BSL-1,"California, USA",United States,North America,Soil of a peach orchard.,Environment,1969,1960
+UCDFST69-1033.1,Included,,UCDFST ,"UCDFST69-1033.1,",BSL-1,"California, USA",United States,North America,Soil of a peach orchard.,Environment,1969,1960
+UCDFST69-1033.2,Included,,UCDFST ,"UCDFST69-1033.2,",BSL-1,"California, USA",United States,North America,Soil of a peach orchard,Environment,1969,1960
+UCDFST72-209,Included,,UCDFST ,"UCDFST72-209,",BSL-1,"Thailand,",Thailand,Asia,"Food processing equipment, Isolated from arrow root debris discharge Thai Prapinpon Oriental Food Factory, Thailand, 3/72",NA,1972-03,1970
+UCDFST73-68,Included,,UCDFST ,"UCDFST73-68,",BSL-1,"Arizona, USA,",United States,North America,"Plant cactus, Isolated from rotting saguaro by Heed.",Environment,1973,1970
+UCDFST73-70,Included,,UCDFST ,"UCDFST73-70,",BSL-1,"Arizona, USA,",United States,North America,"Plant cactus, Isolated from rotting saguaro by W.B. Heed(AZ).",Environment,1973,1970
+UCDFST74-110,Included,,UCDFST ,"UCDFST74-110,",BSL-1,"Arizona, USA,",United States,North America,"Plant cactus, Isolated from rotting saguaro by W.B. Heed(AZ)",Environment,May 1905,1900
+UCDFST74-6,Included,,UCDFST ,"UCDFST74-6,",BSL-1,"Davis, California, USA",United States,North America,"Plant, Isolated from germinating tomato seedlings, Dept. Plant Pathology, 3/74.",Environment,<1974,1970
+UCDFST77-74,Included,,UCDFST ,"UCDFST77-74,CBS1557",BSL-1,Sacchetti Italy,Italy,Europe,"Food dairy, isolated from stracchino cheese",Dairy,<1977,1970
+UCDFST77-75,Included,,UCDFST ,"UCDFST77-75,CBS5672",BSL-1,"South Africa,South Africa",South Africa,South Africa,"Food or beverage fermentatio, Bantu beer",Non-dairy Fermented,<1977,1970
+UCDFST81-489.1,Included,,UCDFST ,"UCDFST81-489.1,",BSL-1,"Tucson, Arizona, USA,",United States,North America,"Plant cactus, Opuntia ficus-indica",Environment,1981,1980
+UCDFST81-630.3,Included,,UCDFST ,"UCDFST81-630.3,",BSL-1,"Brauenfels, Texas, USA",United States,North America,"Plant cactus, Opuntia lindheimeri",Environment,1981,1980
+Y.00214,Included,,NCA,Y.00214,BSL-1,NA,NA,NA,,NA,,NA
+Y.00260,Included,,NCA ,"Y.00260, CCY 21-3-1",BSL-1,NA,NA,NA,,NA,,NA
+Y.00336,Included,,NCA ,"Y.00336, JATE 0734",BSL-1,NA,NA,NA,,NA,,NA
+Y.00386,Included,,NCA ,"Y.00386, JATE 07386",BSL-1,NA,NA,NA,,NA,,NA
+Y.00634,Included,,NCA ,Y.00634,BSL-1,"Hungary,Hungary",Hungary,Europe,Caucasian type kefyr,Dairy,,NA
+Y.00638,Included,,NCA ,Y.00638,BSL-1,"Hungary ,Hungary ",Hungary,Europe,fruit concentratum,Non-dairy Food,,NA
+Y.00697,Included,,NCA ,Y.00697,BSL-1,NA,NA,NA,,NA,,NA
+Y.00933,Included,,NCA ,Y.00933,BSL-1,"Hungary ,Hungary ",Hungary,Europe,	cottage cheese,Dairy,,NA
+Y.01229,Included,,NCA ,Y.01229,BSL-1,"Hungary ,Hungary ",Hungary,Europe,fermenting kiwi,Non-dairy Food,,NA
+Y.01562,Included,,NCA ,Y.01562,BSL-1,"Hungary ,Hungary ",Hungary,Europe,rotten wood ,Environment,,NA

@@ -1,0 +1,603 @@
+
+This workflow is for analyzing data from high-throughput phenotype screens. The images from these screens were processed with phenotypic. The metrics were then saved at Phenotypic_metrics.csv. 
+
+The order of this workflow is: 
+  1. Morphology Filters
+  2. IQR Outlier Filters 
+  3. Filtering Patterns  
+  4. Edge Effect Analysis 
+  5. Coefficient of Variation Analysis 
+  6. Pearson's R 
+
+Libraries
+```{r}
+library(dplyr)
+library(ggplot2)
+library(tidyverse)      
+library(broom)          
+library(ggpointdensity) 
+library(scales)
+```
+
+Set your filtering parameters
+```{r}
+circularity_parameter = 0.7 
+solidity_parameter=7.5 
+compactness_parameter=2.5 
+iqr_fence = 1.5
+```
+
+load in data files 
+```{r}
+#this is the raw data from phenotypic 
+raw_data <- read.csv("input/phenotypic_data.csv")
+```
+
+*Start of Filtering Pipeline for Raw Data* 
+Morphological Filters 
+What will this do? It'll create a new column called "Filter" that will tell you if the data passed or didn't, and if it didn't pass, why it didn't pass (e.g. it didn't pass the circularity filter so it says "Circularity")
+```{r}
+raw_data_1 <- raw_data %>% 
+  mutate(
+    # Create individual failure flags using the new column names
+    fail_circ  = if_else(!is.na(Circularity) & Circularity <= circularity_parameter, "Circularity", ""),
+    fail_solid = if_else(!is.na(Solidity) & Solidity <= solidity_parameter, "Solidity", ""),
+    fail_comp  = if_else(!is.na(Compactness) & Compactness >= compactness_parameter, "Compactness", "")
+  ) %>% 
+  mutate(
+    # Combine failures separated by " & "
+    Filter = paste(fail_circ, fail_solid, fail_comp, sep = " & ") %>% 
+      # Clean up leading, trailing, or double ampersands
+      str_replace_all("^[ &]+|[ &]+$", "") %>% 
+      str_replace_all(" &  & ", " & ") %>% 
+      str_trim(),
+    # If empty, it passed all thresholds -> "TRUE"
+    Filter = if_else(Filter == "", "Passed", Filter)
+  ) %>% 
+  dplyr::select(-fail_circ, -fail_solid, -fail_comp)
+
+raw_data_1
+```
+
+IQR Outlier Filters
+What will this do? We write a function to group data points according to the condition, set, time and strain, then remove any outliers using IQR. E.g. this will look at all replicates of strain 1 on Set 1 at time point 12 hr on glucose and determine if any of the replicates are an outlier. 
+```{r}
+#IQR Function 
+iqr_outlier <- function(x, fence = 1.0) {
+  q1 <- quantile(x, 0.25, na.rm = TRUE)
+  q3 <- quantile(x, 0.75, na.rm = TRUE)
+  iqr_val <- q3 - q1
+  x >= (q1 - fence * iqr_val) & x <= (q3 + fence * iqr_val)
+}
+metric_cols <- c("Area")
+
+#Apply the IQR Function to your dataset 
+filtered_data <- raw_data_1 %>%
+  group_by(Condition, Set, Time, Strain) %>% 
+  mutate(
+    passes_iqr = if_all(all_of(metric_cols), ~ iqr_outlier(.x, fence = iqr_fence)),
+      Filter = case_when(
+      passes_iqr ~ Filter,                               
+      Filter == "TRUE" ~ "IQR",                          
+      TRUE ~ paste0(Filter, "_IQR")                     
+    )) %>% 
+  dplyr::select(-passes_iqr) %>% 
+  ungroup()
+
+write.csv(filtered_data,"input/filtered_data.csv")
+```
+
+Filtering Patterns  
+
+Now that filtering is finished, let's look at what was filtered out and where. This will give you the total data counts for the data points that passed and those that didn't, and why, as well as percentages. 
+```{r}
+filtered_data %>%
+  mutate(
+    #simplify the filtering conditions 
+    Filter_Cleaned = case_when(
+      str_detect(Filter, "Circularity") ~ "Circularity",
+      str_detect(Filter, "Solidity")    ~ "Solidity",
+      TRUE ~ as.character(Filter)
+    )
+  ) %>%
+  group_by(Filter_Cleaned) %>%
+  #count how many times something was filtered 
+  summarise(Count = n(), .groups = "drop") %>%
+  #add a percentage
+  mutate(Percentage = round((Count / sum(Count)) * 100, 2))
+```
+
+For each condition, how did the filtering rates apply? For example, was more filtered out in xylose than pectin? 
+```{r}
+# Define custom carbon source order
+carbon_order <- c("Pectin", "Lactose", "Cellobiose", "Galactose", "Xylose", "Arabinose", "30C")
+
+Filtering_by_Condition <- filtered_data %>%
+  # 1. Clean and standardize Filter category names
+  mutate(
+    Filter_Cleaned = case_when(
+      Filter == "Passed" ~ "Retained Data Points",
+      str_detect(Filter, "Circularity") ~ "Circularity Filtered",
+      str_detect(Filter, "Solidity")    ~ "Solidity Filtered",
+      str_detect(Filter, "IQR")         ~ "IQR Filtered",
+      TRUE ~ as.character(Filter)
+    )
+  ) %>%
+  # 2. Count total data points per Carbon Source and Filter Category
+  group_by(Condition, Filter_Cleaned) %>%
+  summarise(Count = n()/1000, .groups = "drop") %>%
+  
+  # 3. Pivot into wide format (one row per Carbon Source)
+  pivot_wider(
+    names_from  = Filter_Cleaned,
+    values_from = Count,
+    values_fill = 0
+  ) %>%
+  
+  # 4. Select and reorder columns explicitly
+  dplyr::select(
+    `Carbon Source`        = Condition,
+    `Retained Data Points` = matches("Retained Data Points"),
+    `Circularity Filtered` = matches("Circularity Filtered"),
+    `Solidity Filtered`    = matches("Solidity Filtered"),
+    `IQR Filtered`         = matches("IQR Filtered")
+  ) %>%
+  
+  # 5. Order rows from top to bottom by specified carbon source order
+  mutate(`Carbon Source` = factor(`Carbon Source`, levels = carbon_order)) %>%
+  arrange(`Carbon Source`) %>%
+  mutate(`Carbon Source` = as.character(`Carbon Source`)) # Convert back to character for clean CSV export
+
+# Display table
+Filtering_by_Condition
+
+# Export to CSV
+write.csv(Filtering_by_Condition, "output/filtering_by_condition.csv", row.names = FALSE)
+```
+
+Was the rate of filtering the same across all time points or different? 
+```{r}
+# Create contingency table: Time Point vs. Outlier/Filter Status
+time_table <- table(filtered_data$Time, filtered_data$Filter %in% c("Passed"))
+
+# Run Chi-Square Test
+chisq_time <- chisq.test(time_table)
+print(chisq_time)
+
+# Inspect Observed vs Expected counts to identify early vs late patterns
+chisq_time$observed
+chisq_time$expected
+
+# 1. Calculate percentage of filtered-out data per condition and time point
+filtered_data %>%
+  group_by(Time) %>%
+  summarize(
+    total_colonies = n(),
+    filtered_count = sum(!Filter %in% c("Passed"), na.rm = TRUE),
+    pct_filtered   = (filtered_count / total_colonies) * 100,
+    .groups = "drop"
+  )
+```
+
+Were the colonies that were flagged unique or repeats? 
+```{r}
+# 1. Sort data temporally and flag consecutive failures per physical colony
+repeat_failure_analysis <- filtered_data %>%
+  mutate(Is_Fail = !Filter %in% c("Passed")) %>%
+  arrange(Condition, Strain, Biological_Replicate,Technical_Replicate, Time) %>%
+  group_by(Condition, Strain, Biological_Replicate,Technical_Replicate) %>%
+  mutate(
+    # Check if the colony failed at the NEXT available time point
+    Failed_Next_Timepoint = lead(Is_Fail),
+    Has_Next_Timepoint = !is.na(lead(Is_Fail))
+  ) %>%
+  ungroup()
+
+# 2. Filter down to only instances where a failure occurred (Is_Fail == TRUE)
+failure_events <- repeat_failure_analysis %>%
+  filter(Is_Fail == TRUE & Has_Next_Timepoint == TRUE)
+
+# 3. Calculate global repeat failure rate
+repeat_rate <- mean(failure_events$Failed_Next_Timepoint) * 100
+
+cat(sprintf("Total failure events evaluated: %d\n", nrow(failure_events)))
+cat(sprintf("Repeat failure rate: %.2f%% of failed colonies failed again at the subsequent time point.\n", repeat_rate))
+```
+
+Get the binned counts for your circularity and solidity parameters for Figure 5a and 5b
+```{r}
+bin_metric_zero <- function(data, col_name, start, end, bin) {
+  breaks <- round(seq(start, end, by = bin), 6)
+  data %>%
+    filter(!is.na(.data[[col_name]])) %>%
+    mutate(
+      # Assign into left-closed intervals [start, start + bin)
+      Bin_Start = cut(
+        .data[[col_name]], 
+        breaks = breaks, 
+        right = FALSE, 
+        include.lowest = TRUE,
+        labels = breaks[-length(breaks)]
+      ),
+      # Convert back to rounded numeric
+      Bin_Start = round(as.numeric(as.character(Bin_Start)), 4)
+    ) %>%
+    # Filter out any points strictly falling outside [start, end]
+    filter(!is.na(Bin_Start)) %>%
+    count(Bin_Start, name = "Count") %>%
+    # Fill in missing empty bins with 0 count across the clean breaks
+    complete(
+      Bin_Start = breaks[-length(breaks)], 
+      fill = list(Count = 0)
+    ) %>%
+    mutate(Metric = col_name) %>%
+    arrange(Bin_Start) %>%
+    dplyr::select(Metric, Bin_Start, Count)
+}
+
+# Run pipeline (using your new df and column names)
+df_binned <- bind_rows(
+  bin_metric_zero(filtered_data, "Circularity", 0, 1, 0.025),
+  bin_metric_zero(filtered_data, "Solidity", 0, 23, 0.5)
+)
+
+df_binned$Count = df_binned$Count/1000
+write.csv(df_binned,"output/df_binned.csv", row.names = FALSE)
+```
+
+Edge Effect Analysis 
+We know where the negative controls are, so label the colonies for each set as surrounded vs peripheral. Then, test if there's a significant difference using Welch's T-Test 
+```{r}
+#Define negative control coordinates per Metadata_Set
+neg_controls <- tibble::tribble(
+  ~Set, ~row, ~col,
+  1, 3, 3,  1, 2, 11, 1, 5, 9,  1, 7, 5,
+  2, 2, 2,  2, 4, 6,  2, 6, 9,  2, 7, 4, 2, 7, 11,
+  3, 2, 4,  3, 2, 9,  3, 6, 2,  3, 6, 10
+)
+
+#Build theoretical layout (excluding negative controls)
+occupied_lookup <- tidyr::crossing(
+  Set = c(1, 2, 3),
+  row = 1:8,
+  col = 1:12
+) %>%
+  anti_join(neg_controls, by = c("Set", "row", "col")) %>%
+  mutate(grid_coords = paste(row, col, sep = "_")) %>%
+  group_by(Set) %>%
+  summarize(valid_coords = list(grid_coords), .groups = "drop")
+
+# Generate master 96-well grid template with labels pre-assigned
+master_grid_template <- tidyr::crossing(
+  Set = c(1, 2, 3),
+  row = 1:8,
+  col = 1:12
+) %>%
+  mutate(Grid_Number = (row - 1) * 12 + col) %>%
+  left_join(occupied_lookup, by = "Set") %>%
+  rowwise() %>%
+  mutate(
+    is_outer_border = (row == 1 | row == 8 | col == 1 | col == 12),
+    has_top   = paste(row - 1, col, sep = "_") %in% valid_coords,
+    has_bot   = paste(row + 1, col, sep = "_") %in% valid_coords,
+    has_left  = paste(row, col - 1, sep = "_") %in% valid_coords,
+    has_right = paste(row, col + 1, sep = "_") %in% valid_coords,
+    
+    is_neg_control = !paste(row, col, sep = "_") %in% valid_coords,
+    
+    Colony_Label_Template = case_when(
+      is_neg_control ~ "negative_control",
+      !is_outer_border & (has_top & has_bot & has_left & has_right) ~ "surrounded",
+      TRUE ~ "edge"
+    )
+  ) %>%
+  ungroup() %>%
+  dplyr::select(Set, Grid_Number, row, col, Colony_Label_Template)
+
+# Safely calculate coordinates in filtered_data and join with master template
+labeled_df <- filtered_data %>%
+  mutate(
+    Grid_Number = as.integer(Grid_Number),
+    row = (Grid_Number - 1) %/% 12 + 1,
+    col = (Grid_Number - 1) %% 12 + 1
+  ) %>%
+  # Full join to retain experimental data while ensuring dropped grid points exist
+  full_join(
+    master_grid_template,
+    by = c("Set", "Grid_Number", "row", "col")
+  ) %>%
+  mutate(
+    # Use template assignment for all rows (including dropped ones)
+    Colony_Label = Colony_Label_Template
+  ) %>%
+  dplyr::select(-Colony_Label_Template)
+
+#Render 96-well array plot for each set to verify 
+master_grid_template %>%
+  filter(Set == 2) %>% ggplot(aes(x = col, y = row, fill = Colony_Label_Template)) +
+  geom_tile(color = "white", linewidth = 1) +
+  geom_text(aes(label = Grid_Number), size = 3, color = "black") +
+  scale_y_reverse(breaks = 1:8, labels = LETTERS[1:8]) +
+  scale_x_continuous(breaks = 1:12, position = "top") +
+  scale_fill_manual(
+    values = c(
+      "edge" = "#E69F00", 
+      "surrounded" = "#56B4E9", 
+      "negative_control" = "#D55E00"
+    ),
+    labels = c(
+      "edge" = "Edge (Peripheral)", 
+      "surrounded" = "Surrounded", 
+      "negative_control" = "Negative Control"
+    )
+  ) +
+  coord_fixed(ratio = 1) +
+  labs(
+    x = "Column",
+    y = "Row",
+    fill = "Well Classification"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "right",
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    axis.ticks = element_blank()
+  )
+```
+
+Now that we know which rows are edge vs surrounded, let's perform the edge effect test
+```{r}
+#Generate the dataset for the t-test
+ttest_data <- labeled_df %>% 
+  # Filter out negative controls and metrics that didn't pass the Filter test, as these will skew the results since they aren't real colonies 
+  filter(
+    Filter == "Passed",
+    Colony_Label %in% c("edge", "surrounded"),
+    !is.na(Area)
+  ) 
+
+#run the t-test
+ttest_results = ttest_data %>% 
+  #group by the condition, set, time and replicates. 
+  group_by(Condition, Set, Time, Biological_Replicate, Technical_Replicate) %>%
+  # Ensure at least 2 non-NA measurements exist per group for variance estimation
+  filter(
+    sum(Colony_Label == "surrounded") >= 2,
+    sum(Colony_Label == "edge") >= 2
+  ) %>%
+  group_modify(~ broom::tidy(t.test(Area ~ Colony_Label, data = .x))) %>%
+  ungroup() %>%
+  dplyr::select(
+    Condition, Set, Time, Biological_Replicate, Technical_Replicate, estimate_difference = estimate, statistic, p.value, parameter_df = parameter, conf.low, conf.high
+  )
+
+#Multiple testing correction (e.g., Benjamini-Hochberg FDR)
+ttest_results_adjusted <- ttest_results %>%
+  mutate(p.adj = p.adjust(p.value, method = "BH")) 
+
+# Using the ttest_results_adjusted dataframe from your code
+ttest_results_adjusted  %>% filter(p.adj>0.05) %>% ggplot(aes(x = p.value, y = p.adj)) +
+  geom_point(alpha = 0.7, color = "dodgerblue") +
+  
+  # Add a red dashed line where adjusted = unadjusted (y = x)
+  # Points will fall above this line because adjusted p-values are larger
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "red") +
+  
+  # Add dotted lines to show the 0.05 significance threshold
+  geom_vline(xintercept = 0.05, linetype = "dotted", color = "darkgray") +
+  geom_hline(yintercept = 0.05, linetype = "dotted", color = "darkgray") +
+  
+  # Add labels and format
+  labs(
+    title = "Adjusted vs. Unadjusted p-values",
+    subtitle = "Comparing Raw p-values to Benjamini-Hochberg FDR",
+    x = "Unadjusted p-value",
+    y = "Adjusted p-value (FDR)"
+  ) +
+  theme_minimal()
+
+
+# Export only the identifiers and p-values for a clean Prism import
+ttest_results_csv <- ttest_results_adjusted %>%
+  dplyr::select(Condition, Time, p.value, p.adj)
+
+write.csv(ttest_results_csv, "output/t_test_results.csv", row.names = FALSE)
+
+ttest_results_adjusted %>% filter(estimate_difference > 0 & p.adj < 0.05)
+```
+
+Coefficient of Variation Analysis 
+```{r}
+#calculate CV for all the data (not filtering anything out)
+sd_cv_raw <- filtered_data %>% 
+  group_by(Condition, Time, Strain) %>% 
+  summarise(
+    n_replicates = n(),
+    mean_area    = mean(Area, na.rm = TRUE),
+    sd_area      = sd(Area, na.rm = TRUE),
+    cv           = (sd_area / mean_area) * 100,
+    .groups      = "drop"
+  ) %>% 
+  filter(!is.na(cv)) 
+
+#Avg CV for all the data 
+sd_cv_raw %>% summarize(mean(cv,na.rm=TRUE), median(cv,na.rm=TRUE))
+
+#calculate CV for only the filtered data
+sd_cv_retained <- filtered_data %>% 
+  filter(Filter == "Passed") %>% 
+  group_by(Condition, Time, Strain) %>% 
+  summarise(
+    n_replicates = n(),
+    mean_area    = mean(Area, na.rm = TRUE),
+    sd_area      = sd(Area, na.rm = TRUE),
+    cv           = (sd_area / mean_area) * 100,
+    .groups      = "drop"
+  ) %>% 
+  filter(!is.na(cv)) %>% 
+  mutate(QC_Group = "Retained (TRUE)")
+
+#Avg CV for only the filtered data
+sd_cv_retained %>% summarize(mean(cv,na.rm=TRUE), median(cv,na.rm=TRUE))
+
+#calculate the cv for the flagged data 
+sd_cv_flagged <- filtered_data %>% 
+  filter(Filter != "Passed") %>% 
+    group_by(Condition, Time, Strain) %>% 
+  summarise(
+    n_replicates = n(),
+    mean_area    = mean(Area, na.rm = TRUE),
+    sd_area      = sd(Area, na.rm = TRUE),
+    cv           = (sd_area / mean_area) * 100,
+    .groups      = "drop"
+  ) %>% 
+  filter(!is.na(cv))  %>% 
+  mutate(QC_Group = "Flagged Data")
+
+#Avg CV for just the data that didn't pass filtering 
+sd_cv_flagged %>% summarize(mean(cv,na.rm=TRUE), median(cv,na.rm=TRUE))
+```
+Now let's generate an Empirical Cumulative Distribution Function of the retained vs filtered data 
+```{r}
+# Combine both into one master data frame for plotting
+combined_cv <- bind_rows(sd_cv_retained, sd_cv_flagged)
+
+# 4. Generate ggplot ECDF Plot
+ecdf_plot <- ggplot(combined_cv, aes(x = cv, color = QC_Group)) +
+  stat_ecdf(geom = "step", linewidth = 1.2) +
+  scale_color_manual(values = c("Retained (TRUE)" = "#1f77b4", "Flagged Data" = "#d62728")) +
+  scale_x_continuous(limits = c(0, 50), breaks = seq(0, 50, by = 10)) +
+  scale_y_continuous(labels = scales::percent) +
+  labs(
+    x = "Coefficient of Variation (%)",
+    y = "Cumulative Probability",
+    color = "QC Status"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.position = "top",
+    panel.grid.minor = element_blank(),
+    plot.title = element_text(face = "bold")
+  )
+
+# Display the plot in R / RStudio
+print(ecdf_plot)
+
+retained_cvs <- sd_cv_retained %>% pull(cv)
+flagged_cvs  <- sd_cv_flagged  %>% pull(cv)
+
+ecdf_retained_fn <- ecdf(retained_cvs)
+ecdf_flagged_fn  <- ecdf(flagged_cvs)
+
+x_grid <- seq(from = 0, to = 50, by = 0.1)
+
+ecdf_table <- tibble(
+  `CV_Percent_X`           = x_grid,
+  `Blue_Line_Both_TRUE`   = ecdf_retained_fn(x_grid),
+  `Red_Line_Both_Flagged` = ecdf_flagged_fn(x_grid)
+)
+
+write_csv(ecdf_table, "output/ECDF.csv")
+```
+
+Pearson's R 
+Calculate Pearson's R for the unfiltered and filtered dataset 
+```{r}
+# 1. Generate all unique pairwise combinations of technical replicates
+group_correlations <- filtered_data%>% 
+  # Isolate each experimental group
+  group_by(Condition, Time, Strain) %>%
+  # Require at least 2 retained replicates to form a pair
+  filter(n() >= 2) %>%
+  # Generate all unique 2-way combinations of Shape_Area within each group
+  summarise(
+    pair_combos = list(as_tibble(t(combn(Area, 2)))),
+    .groups = "drop"
+  ) %>%
+  # Flatten the list-column into individual rows
+  unnest(pair_combos) %>%
+  # Rename columns to represent paired observations
+  rename(Rep_A = V1, Rep_B = V2)
+
+group_correlations %>%
+  summarise(
+    total_pairs = n(),
+    global_r    = cor.test(Rep_A, Rep_B, method = "pearson")$estimate,
+    global_r2   = global_r^2,
+    ci_lower    = cor.test(Rep_A, Rep_B, method = "pearson")$conf.int[1],
+    ci_upper    = cor.test(Rep_A, Rep_B, method = "pearson")$conf.int[2],
+    p_value     = cor.test(Rep_A, Rep_B, method = "pearson")$p.value
+  )
+
+# 1. Generate all unique pairwise combinations of technical replicates
+group_correlations <- filtered_data%>% 
+  filter(Filter == "Passed") %>% 
+  # Isolate each experimental group
+  group_by(Condition, Time, Strain) %>%
+  # Require at least 2 retained replicates to form a pair
+  filter(n() >= 2) %>%
+  # Generate all unique 2-way combinations of Shape_Area within each group
+  summarise(
+    pair_combos = list(as_tibble(t(combn(Area, 2)))),
+    .groups = "drop"
+  ) %>%
+  # Flatten the list-column into individual rows
+  unnest(pair_combos) %>%
+  # Rename columns to represent paired observations
+  rename(Rep_A = V1, Rep_B = V2)
+
+group_correlations %>%
+  summarise(
+    total_pairs = n(),
+    global_r    = cor.test(Rep_A, Rep_B, method = "pearson")$estimate,
+    global_r2   = global_r^2,
+    ci_lower    = cor.test(Rep_A, Rep_B, method = "pearson")$conf.int[1],
+    ci_upper    = cor.test(Rep_A, Rep_B, method = "pearson")$conf.int[2],
+    p_value     = cor.test(Rep_A, Rep_B, method = "pearson")$p.value
+  )
+```
+Generate a graph comparing replicates 
+```{r}
+# 1. Assign a random unique pair index (1 pair per colony, no overcounting)
+sd_df_split_pairs <- filtered_data %>%
+  filter(Filter == "Passed", !is.na(Area)) %>%
+  group_by(Condition, Time, Strain) %>%
+  filter(n() >= 2) %>%
+  # Shuffle rows within each group
+  slice_sample(prop = 1) %>%
+  # Create pairs by grouping every 2 consecutive spots
+  mutate(
+    pair_id = ceiling(row_number() / 2),
+    rep_label = if_else(row_number() %% 2 == 1, "Rep_A_Area", "Rep_B_Area")
+  ) %>%
+  group_by(Condition, Time, Strain, pair_id) %>%
+  filter(n() == 2) %>% # Keep only complete pairs
+  # Keep ONLY the grouping keys + pivoting columns so pivot_wider collapses properly
+  dplyr::select(Condition, Time, Strain, pair_id, rep_label, Area) %>%
+  pivot_wider(names_from = rep_label, values_from = Area) %>%
+  ungroup()
+
+paired_retained_plot <- ggplot(sd_df_split_pairs, aes(x = Rep_A_Area, y = Rep_B_Area)) +
+  geom_pointdensity(method = "neighbors", size = 0.5, alpha = 0.8) +
+  geom_abline(intercept = 0, slope = 1, linetype = "dashed", color = "gray30", linewidth = 0.8) +
+  
+  scale_color_viridis_c(option = "magma") +
+  scale_x_continuous(limits = c(0, 6000), labels = comma) + 
+  scale_y_continuous(limits = c(0, 6000), labels = comma) +
+  
+  theme_classic(base_size = 12) 
+# Display plot
+paired_retained_plot
+
+# Save high-res transparent PNG
+ggsave(
+  filename = "output/paired_retained_plot.png",
+  plot = paired_retained_plot,
+  width = 5,
+  height = 5,
+  dpi = 600,
+  bg = "transparent"
+)
+```
+
